@@ -8,19 +8,19 @@ import IRepository from "./IRepository.mjs";
 
 class SuperHeroeRepository extends IRepository {
     async obtenerPorId(id) {
-        return await SuperHeroe.findById(id);
+        return await superHeroe.findById(id);
     }
 
     async obtenerTodos() {
-        return await SuperHeroe.find({});
+        return await superHeroe.find({});
     }
 
     async buscarPorAtributo(atributo, valor) {
-        return await Superheroe.find( { [atributo] : valor } );
+        return await superHeroe.find( { [atributo] : valor } );
     }
 
     async obtenerMayoresDe30() {
-        return await Superheroe.find( (hero) => hero.edad > 30 );
+        return await superHeroe.find( { edad : { $gt : 30 }} );
     }
 }
 

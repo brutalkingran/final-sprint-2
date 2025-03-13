@@ -4,7 +4,7 @@
 
 export const renderizarSuperheroe = ( superheroe ) => {
     return {
-        nombre: superheroe.nombreSuperHeroe,
+        Nombre: superheroe.nombreSuperHeroe,
         "Nombre Real": superheroe.nombreReal,
         Edad: superheroe.edad,
         "Planeta de Origen": superheroe.planetaOrigen,

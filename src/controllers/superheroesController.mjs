@@ -6,6 +6,8 @@ import { obtenerSuperheroePorId, obtenerTodosLosSuperheroes, buscarSuperheroesPo
 import { renderizarSuperheroe, renderizarListaSuperheroes } from '../views/responseView.mjs';
 
 export const obtenerSuperheroePorIdController = async ( req, res ) => {
+    console.log("B");
+    
     try {
         const { id } = req.params;
         const superheroe = await obtenerSuperheroePorId(id);
@@ -28,10 +30,10 @@ export const obtenerSuperheroePorIdController = async ( req, res ) => {
 
 export const obtenerTodosLosSuperheroesController = async ( req, res ) => {
     try {
-        const superheroe = await obtenerTodosLosSuperheroes();
+        const superheroes = await obtenerTodosLosSuperheroes();
         const superheroesFormateados = renderizarListaSuperheroes(superheroes);
 
-        res.status(200).json(superheroeFormateados)
+        res.status(200).json(superheroesFormateados)
     } catch (error) {
         res.status(500).send({
             mensaje: `Error al obtener los superhéroes`,
@@ -43,15 +45,15 @@ export const obtenerTodosLosSuperheroesController = async ( req, res ) => {
 export const buscarSuperheroesPorAtributoController = async ( req, res ) => {
     try {
         const { atributo, valor } = req.params;
-        const superheroe = await buscarSuperheroesPorAtributo(atributo, valor);
+        const superheroes = await buscarSuperheroesPorAtributo(atributo, valor);
 
-        if (superheroes.lenghh === 0) {
+        if (superheroes.length === 0) {
             return res.status(404).send({
                 mensaje: `No se encontraron superhéroes con este atributo`
             });
         }
 
-        const superheroeFormateado = renderizarListaSuperheroe(superheroes);
+        const superheroeFormateado = renderizarListaSuperheroes(superheroes);
         res.status(200).json(superheroeFormateado);
     } catch (error) {
         res.status(500).send({
@@ -63,15 +65,15 @@ export const buscarSuperheroesPorAtributoController = async ( req, res ) => {
 
 export const obtenerSuperheroesMayoresDe30Controller = async ( req, res ) => {
     try {
-        const superheroe = await obtenerSuperheroesMayoresDe30();
+        const superheroes = await obtenerSuperheroesMayoresDe30();
 
-        if (superheroes.lenght === 0) {
+        if (superheroes.length === 0) {
             return res.status(404).send({
                 mensaje: `No se encontraron superhéroes mayores de 30 años`
             });
         }
 
-        const superheroeFormateado = renderizarListaSuperheroe(superheroe);
+        const superheroeFormateado = renderizarListaSuperheroes(superheroes);
 
         res.status(200).json(superheroeFormateado);
     } catch (error) {
