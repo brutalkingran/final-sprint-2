@@ -1,6 +1,8 @@
 // capa de persistencia
 // interfaz crud
 // implementacion crud de superheroe
+// Permite reutilizar código de acceso a datos y facilita la migración de bases de datos.
+// "Declaramos" nuestros métodos
 // 3)
 
 class IRepository {

@@ -1,6 +1,7 @@
 // capa de persistencia
 // interfaz crud
-// implementacion crud de superheroe
+// implementacion crud de superheroe. SEPARA LÓGICA DE ACCESO DE BASE DE DATOS
+// actúa como un intermediario entre la base de datos y la lógica de la aplicación
 // 3)
 
 import superHeroe from "../models/SuperHeroe.mjs";

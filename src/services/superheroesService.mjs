@@ -1,4 +1,4 @@
-// Lógica de negocio
+// Lógica de negocio. Llama a los repositorios para obtener datos y aplicar lógica adicional.
 // Servicios de Superheroe
 // 4)
 
