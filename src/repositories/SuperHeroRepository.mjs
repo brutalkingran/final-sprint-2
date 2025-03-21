@@ -21,7 +21,12 @@ class SuperHeroeRepository extends IRepository {
     }
 
     async obtenerMayoresDe30() {
-        return await superHeroe.find( { edad : { $gt : 30 }} );
+        // return await superHeroe.find( { edad : { $gt : 30 } } );
+        return await superHeroe.find( { $and : [
+            { edad : { $gt : 30 } },
+            { planetaOrigen : "Tierra" },
+            { $expr: { $gt: [{ $size: "$poderes" }, 2] } } 
+        ] } );
     }
 }
 
